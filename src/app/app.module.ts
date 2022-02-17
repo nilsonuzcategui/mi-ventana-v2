@@ -9,11 +9,39 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginPage } from './pages/login/login.page';
 import { PlanesPage } from './pages/planes/planes.page';
 import { PagosPage } from './pages/pagos/pagos.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
+
+const tokenGetter = () => localStorage.getItem('token');
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, LoginPage, PlanesPage, PagosPage],
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    LoginPage,
+    PlanesPage,
+    PagosPage,
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CoreModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['localhost:1280'],
+        // disallowedRoutes: ['http://example.com/examplebadroute/'],
+      },
+    }),
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
