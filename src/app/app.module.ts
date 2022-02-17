@@ -7,11 +7,11 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginPage } from './pages/login/login.page';
-
-
+import { PlanesPage } from './pages/planes/planes.page';
+import { PagosPage } from './pages/pagos/pagos.page';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, LoginPage],
+  declarations: [AppComponent, LayoutComponent, LoginPage, PlanesPage, PagosPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CoreModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

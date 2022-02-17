@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { HomePage } from './pages/home/home.page';
 import { LoginPage } from './pages/login/login.page';
+import { PagosPage } from './pages/pagos/pagos.page';
+import { PlanesPage } from './pages/planes/planes.page';
 
 const routes: Routes = [
   {
@@ -12,7 +14,15 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomePage
-      }
+      },
+      {
+        path: 'servicios/planes',
+        component: PlanesPage
+      },
+      {
+        path: 'pagos',
+        component: PagosPage
+      },
     ]
   },
   {
