@@ -1,0 +1,7 @@
+{
+  "name": "mi-ventana-v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
