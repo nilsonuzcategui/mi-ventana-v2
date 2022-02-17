@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.css']
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.css']
 })
-export class HomePage implements OnInit {
+export class LoginPage implements OnInit {
 
   constructor() { }
 
