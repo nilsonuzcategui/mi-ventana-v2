@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.css'],
+  templateUrl: './signup.page.html',
+  styleUrls: ['./signup.page.css'],
 })
-export class LoginPage {
+export class SignupPage {
   // TODO: Agregar validaciones
-  loginForm = this.fb.group({
-    id: [''],
+  signupForm = this.fb.group({
+    name: [''],
+    lastName: [''],
+    email: [''],
     password: [''],
   });
 
@@ -20,8 +21,8 @@ export class LoginPage {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private toastController: ToastController,
-  ) { }
+    private toastController: ToastController
+  ) {}
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -33,11 +34,14 @@ export class LoginPage {
   }
 
   onSubmit() {
-    this.auth.login(this.loginForm.value).subscribe((res) => {
-      console.log(this.loginForm.value);
-      this.router.navigateByUrl('/home', { replaceUrl: true });
-    }, async (err: Error) => {
-      await this.presentToast(err.message);
-    });
+    this.auth.login(this.signupForm.value).subscribe(
+      (res) => {
+        console.log(this.signupForm.value);
+        this.router.navigateByUrl('/home', { replaceUrl: true });
+      },
+      async (err: Error) => {
+        await this.presentToast(err.message);
+      }
+    );
   }
 }
