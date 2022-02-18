@@ -6,6 +6,7 @@ import { HomePage } from './pages/home/home.page';
 import { LoginPage } from './pages/login/login.page';
 import { PagosPage } from './pages/pagos/pagos.page';
 import { PlanesPage } from './pages/planes/planes.page';
+import { SignupPage } from './pages/signup/signup.page';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'home',
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'servicios/planes',
-        component: PlanesPage
+        component: PlanesPage,
       },
       {
         path: 'pagos',
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginPage,
   },
+  {
+    path: 'signup',
+    component: SignupPage
+  }
 ];
 
 @NgModule({

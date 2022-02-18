@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { SignupPage } from './pages/signup/signup.page';
 
 const tokenGetter = () => localStorage.getItem('token');
 
@@ -23,6 +24,7 @@ const tokenGetter = () => localStorage.getItem('token');
     LoginPage,
     PlanesPage,
     PagosPage,
+    SignupPage,
   ],
   entryComponents: [],
   imports: [
